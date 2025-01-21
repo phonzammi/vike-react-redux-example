@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../../lib/hooks";
+import { increment, selectCount } from "../../lib/features/counter/counterSlice";
 
 export function Counter() {
-  const [count, setCount] = useState(0);
+  const dispatch = useAppDispatch()
+  const count = useAppSelector(selectCount)
 
   return (
-    <button type="button" onClick={() => setCount((count) => count + 1)}>
+    <button type="button" onClick={() => dispatch(increment())}>
       Counter {count}
     </button>
   );

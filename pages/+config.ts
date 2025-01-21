@@ -12,6 +12,12 @@ export default {
   // https://vike.dev/head-tags
   title: "My Vike App",
   description: "Demo showcasing Vike",
-
+  passToClient: ["redux"],
+  stream: true,
+  meta: {
+    redux: {
+      env: { server: true, client: true },
+    },
+  },
   extends: vikeReact,
 } satisfies Config;

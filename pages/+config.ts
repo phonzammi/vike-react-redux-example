@@ -12,7 +12,7 @@ export default {
   // https://vike.dev/head-tags
   title: "My Vike App",
   description: "Demo showcasing Vike",
-  passToClient: ["redux"],
+  passToClient: ["reduxState"],
   stream: true,
   meta: {
     redux: {

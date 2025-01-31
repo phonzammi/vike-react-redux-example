@@ -1,12 +1,12 @@
 export { onBeforeRenderHtml };
 
-import { PageContext } from "vike/types";
+import type { PageContext } from "vike/types";
 
 function onBeforeRenderHtml(pageContext: PageContext) {
-  pageContext.config.redux ??= {};
-
-  const makeStore = pageContext.config.redux.makeStore;
-  if (makeStore) {
-    pageContext.config.redux.store = makeStore();
+  if (pageContext.config.redux) {
+    const { createStore } = pageContext.config.redux;
+    if (createStore) {
+      pageContext.reduxStore = createStore();
+    }
   }
 }

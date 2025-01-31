@@ -1,16 +1,14 @@
-import { AppStore, RootState } from "./pages/+redux";
+import type { AppStore, RootState } from "./pages/+redux";
 
 declare global {
   namespace Vike {
     interface PageContext {
-      redux?: {
-        state?: RootState;
-      };
+      reduxStore?: AppStore;
+      reduxState?: RootState;
     }
     interface Config {
       redux?: {
-        makeStore?: (preloadedState?: any) => AppStore;
-        store?: AppStore;
+        createStore?: (preloadedState?: any) => PageContext["reduxStore"];
       };
     }
   }

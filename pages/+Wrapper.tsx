@@ -7,7 +7,7 @@ import { PageContext } from "vike/types"
 
 function Wrapper({ children }: { children: React.ReactNode }) {
     const pageContext = usePageContext()
-    const storeRef = useRef<PageContext['reduxStore']>()
+    const storeRef = useRef<PageContext['reduxStore']>(undefined)
     const { reduxStore } = pageContext
 
     if (!pageContext.config.redux) {
